@@ -1,0 +1,115 @@
+package lythuyet.tuan2;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+public class NguyenVanPhat_19483821_50_JTableDemo extends JFrame implements ActionListener{
+	private JTextField tfHo;
+	private JTextField tfTen;
+	private JButton btnThem;
+	private JButton btnXoa;
+	private JButton btnThoat;
+	private DefaultTableModel tableModel;
+	private JTable table;
+
+	public NguyenVanPhat_19483821_50_JTableDemo() {
+		this.setTitle("Edit Table");
+		this.setSize(400,300);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		JPanel pCen = new JPanel();
+		
+		JLabel lblHo = new JLabel("Họ:");
+		JLabel lblTen = new JLabel("Tên:");
+		
+		tfHo = new JTextField(14);
+		tfTen = new JTextField(14);
+		
+		btnThem = new JButton("Thêm");
+		btnXoa = new JButton("Xoá");
+		btnThoat = new JButton("Thoát");
+		
+		lblHo.setBounds(80,12,30,20);
+		tfHo.setBounds(110,12,230,20);
+		lblTen.setBounds(80,42,30,20);
+		tfTen.setBounds(110,42,230,20);
+		btnThem.setBounds(80,72,80,28);
+		btnXoa.setBounds(170,72,80,28);
+		btnThoat.setBounds(260,72,80,28);
+		
+		// add các panel vào pCen
+		pCen.setLayout(null);
+		
+		pCen.add(lblHo);
+		pCen.add(tfHo);
+		pCen.add(lblTen);
+		pCen.add(tfTen);
+		pCen.add(btnThem);
+		pCen.add(btnXoa);
+		pCen.add(btnThoat);
+		
+		// tạo jTable
+		String[] header = {"Họ", "Tên"};
+		tableModel = new DefaultTableModel(header, 0);
+		table = new JTable(tableModel);
+		JScrollPane scTable = new JScrollPane(table);
+		scTable.setBounds(0,120,400,120);
+		pCen.add(scTable);
+		table.setRowHeight(30);
+		
+		// add panel vào tổng thể
+		this.add(pCen);
+		
+		// đăng kí lắng nghe nè
+		btnThem.addActionListener(this);
+		btnXoa.addActionListener(this);
+		btnThoat.addActionListener(this);
+	}
+	
+	public static void main(String[] args) {
+		new NguyenVanPhat_19483821_50_JTableDemo().setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Object o = e.getSource();
+		if(o.equals(btnThem)) {
+			if(tfHo.getText() == "" || tfTen.getText() == "") {
+				
+			}
+			else {
+				String[] row = {tfHo.getText(), tfTen.getText()};
+				tableModel.addRow(row);
+				tfHo.setText("");
+				tfTen.setText("");
+				tfHo.requestFocus();
+			}
+		}
+		if(o.equals(btnXoa)) {
+			if(table.getSelectedRow() == -1) {
+				JOptionPane.showMessageDialog(this, "Phải chọn dòng cần xoá!");
+			}
+			else {
+				if(JOptionPane.showConfirmDialog(this, "Bạn chắc xoá chưa",
+						"Cảnh báo", JOptionPane.YES_NO_OPTION) == 1);
+				tableModel.removeRow(table.getSelectedRow());
+			}
+		}
+		if(o.equals(btnThoat)) {
+			System.exit(0);
+		}
+	}
+}

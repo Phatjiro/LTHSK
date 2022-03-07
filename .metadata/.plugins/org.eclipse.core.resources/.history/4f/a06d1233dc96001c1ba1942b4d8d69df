@@ -1,0 +1,44 @@
+package lythuyet.tuan1;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class NguyenVanPhat_19483821_50_ComboBoxDemo extends JFrame{
+	private Font fSerif;
+	private Font fSansSerif;
+	private Font fMonospaced;
+	private JComboBox cbFont;
+	public NguyenVanPhat_19483821_50_ComboBoxDemo() {
+		this.setTitle("Demo combobox sương sương");
+		this.setSize(400,200);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		// tạo panel ở center nè
+		JPanel pCen = new JPanel();
+		JLabel lblTieuDe = new JLabel("Đừng thấy sóng cả mà ngã tay chèo");
+		lblTieuDe.setPreferredSize(new Dimension(10,0));
+		pCen.add(lblTieuDe);
+		fSerif = new Font("Serif", Font.PLAIN, 20);
+		fSansSerif = new Font("SansSerif", Font.PLAIN, 20);
+		fMonospaced = new Font("Monospaced", Font.PLAIN, 20);
+		lblTieuDe.setFont(fSerif);
+		
+		cbFont = new JComboBox();
+		cbFont.addItem("Serif");
+		cbFont.addItem("SansSerif");
+		cbFont.addItem("MonospacedSerif");
+		
+		// add vao màn hình chính nè
+		this.add(pCen, BorderLayout.CENTER);
+		this.add(cbFont, BorderLayout.SOUTH);
+	}
+	public static void main(String[] args) {
+		new NguyenVanPhat_19483821_50_ComboBoxDemo().setVisible(true);
+	}
+}

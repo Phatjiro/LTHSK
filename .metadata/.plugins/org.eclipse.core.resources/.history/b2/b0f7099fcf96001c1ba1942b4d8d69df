@@ -1,0 +1,22 @@
+package lythuyet.tuan1;
+
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class NguyenVanPhat_19483821_50_RadioDemo extends JFrame{
+	private JCheckBox chkItalic;
+	public NguyenVanPhat_19483821_50_RadioDemo() {
+		this.setTitle("Demo RadioButton sương sương");
+		this.setSize(400,200);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		// tạo panel trên top sương sương
+		JPanel pNor = new JPanel();
+		chkItalic = new JCheckBox("Ttalic");
+		pNor.add(chkItalic);
+	}
+	public static void main(String[] args) {
+		new NguyenVanPhat_19483821_50_RadioDemo().setVisible(true);
+	}
+}
