@@ -1,0 +1,12 @@
+package lythuyet.tuan3;
+
+import java.io.FileReader;
+
+public class ByteStream {
+	public static void main(String[] args) {
+		FileReader inStream = null;
+		FileReader outStream = null;
+		
+		
+	}
+}

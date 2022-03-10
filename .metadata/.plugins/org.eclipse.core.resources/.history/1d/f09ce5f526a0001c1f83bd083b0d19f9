@@ -1,0 +1,27 @@
+package lythuyet.tuan3;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class ObjectOutStream {
+	public static void main(String[] args) throws IOException {
+		Book b1 = new Book("Hello Phát");
+		
+		FileOutputStream fileOS = null;
+		ObjectOutputStream objOS = null;
+		try {
+			fileOS = new FileOutputStream("data\\Sach.dat");
+			objOS = new ObjectOutputStream(fileOS);
+			
+			objOS.writeObject(b1);
+			objOS.flush();
+			
+			System.out.println("Xong r nè brooo ới!");
+		} finally {
+			// TODO: handle finally clause
+			if(fileOS != null) fileOS.close();
+			if(objOS != null) objOS.close();
+		}
+	}
+}

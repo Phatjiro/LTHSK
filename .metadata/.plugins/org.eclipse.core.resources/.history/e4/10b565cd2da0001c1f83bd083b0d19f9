@@ -1,0 +1,19 @@
+package lythuyet.tuan3;
+
+public class Book {
+	private String tieuDe;
+
+	public Book(String tieuDe) {
+		super();
+		this.tieuDe = tieuDe;
+	}
+
+	public String getTieuDe() {
+		return tieuDe;
+	}
+
+	public void setTieuDe(String tieuDe) {
+		this.tieuDe = tieuDe;
+	}
+	
+}

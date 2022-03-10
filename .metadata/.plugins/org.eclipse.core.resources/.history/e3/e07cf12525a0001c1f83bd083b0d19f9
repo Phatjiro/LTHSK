@@ -1,0 +1,21 @@
+package lythuyet.tuan3;
+
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
+public class ObjectOutStream {
+	public static void main(String[] args) {
+		Book b1 = new Book("Hello Phát");
+		
+		FileOutputStream fileOS = null;
+		ObjectOutputStream objOS = null;
+		try {
+			fileOS = new FileOutputStream("\\data\\sach.txt");
+			objOS = new ObjectOutputStream(fileOS);
+			
+			
+		} finally {
+			// TODO: handle finally clause
+		}
+	}
+}
