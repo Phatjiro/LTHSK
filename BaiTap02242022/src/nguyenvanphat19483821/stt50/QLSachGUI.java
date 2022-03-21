@@ -178,6 +178,7 @@ public class QLSachGUI extends JFrame implements ActionListener, MouseListener{
 					if (dsSach.getElement(i).getMaSach().equals(selected.toString())) {
 						table.setRowSelectionInterval(i, i);
 						table.setSelectionBackground(new Color(238, 96, 102));
+						table.scrollRectToVisible(table.getCellRect(table.getSelectedRow(), 0, true));
 					}
 				}
 			}
